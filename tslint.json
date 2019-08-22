@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react"
+  ],
+  "linterOptions": {
+    "exclude": ["**/node_modules/**"]
+  },
+  "rules": {
+    "indent": [true, "spaces", 2],
+    "quotemark": [true, "single"],
+    "member-access": [true, "no-public"],
+    "no-shadowed-variable": false,
+    "ordered-imports": false,
+    "forin": false,
+    "no-empty-interface": false,
+    "interface-name": false,
+    "only-arrow-functions": false,
+    "object-literal-sort-keys": false,
+    "semicolon": [true, "never"],
+    "jsx-no-multiline-js": false
+  }
+}

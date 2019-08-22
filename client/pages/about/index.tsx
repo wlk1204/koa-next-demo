@@ -5,7 +5,7 @@ function About() {
     <>
       <ul>
         <li>
-          <Link href="/">
+          <Link href='/'>
             <a>Home</a>
           </Link>
         </li>
