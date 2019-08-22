@@ -4,6 +4,10 @@ const router = (app) => {
   const handle = app.getRequestHandler()
   const router: any = new Router()
 
+  router.get('/', async (ctx) => {
+    ctx.body = 'hello'
+  })
+
   router.get('/a', async (ctx) => {
     await app.render(ctx.req, ctx.res, '/a', ctx.query)
     ctx.respond = false

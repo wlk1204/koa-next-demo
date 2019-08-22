@@ -19,8 +19,11 @@
     "koa": "^2.8.1",
     "koa-router": "^7.4.0",
     "next": "^9.0.4",
+    "next-redux-wrapper": "^3.0.0-alpha.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.4",
     "typescript": "^3.5.3"
   },
   "devDependencies": {
