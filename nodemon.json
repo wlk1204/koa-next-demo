@@ -1,0 +1,7 @@
+{
+  "exec": "cross-env ts-node --project tsconfig.koa.json app.ts",
+  "watch": [
+    "app.ts"
+  ],
+  "ext": "js ts"
+}
