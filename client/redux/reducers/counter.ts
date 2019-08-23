@@ -3,14 +3,11 @@ const initState = {
 }
 
 const counter = (state = initState, action) => {
-  let { count } = state
   switch (action.type) {
     case 'add':
-      count++
-      return {...state, count}
+      return {...state, count: state.count + 1}
     case 'low':
-      count--
-      return {...state, count}
+      return {...state, count: state.count - 1}
     default:
       return state
   }
