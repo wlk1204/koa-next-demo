@@ -7,7 +7,7 @@
       "dom",
       "es2017"
     ],
-    "baseUrl": ".",
+    "baseUrl": "..",
     "moduleResolution": "node",
     "strict": false,
     "allowJs": true,
@@ -15,7 +15,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": false,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noUnusedParameters": false,
     "isolatedModules": true,
     "removeComments": false,

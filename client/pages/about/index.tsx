@@ -1,21 +1,27 @@
-import Link from 'next/link'
+import React from 'react'
+import { connect } from 'react-redux'
 
-function About() {
-  return (
-    <>
-      <ul>
-        <li>
-          <Link href='/'>
-            <a>Home</a>
-          </Link>
-        </li>
-        <li>About Us</li>
-      </ul>
+class B extends React.Component<any, any> {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
 
-      <h1>About</h1>
-      <p>We are a cool company.</p>
-    </>
-  )
+  click = () => {
+    this.props.dispatch({
+      type: 'FOO',
+      payload: '🐷',
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <div>Hello World {this.props.foo}</div>
+        <button onClick={this.click}>ok</button>
+      </div>
+    )
+  }
 }
 
-export default About
+export default connect((state) => state.about)(B)

@@ -5,7 +5,7 @@ const router = (app) => {
   const router: any = new Router()
 
   router.get('/', async (ctx) => {
-    ctx.body = 'hello'
+    ctx.body = 'hello 🐷'
   })
 
   router.get('/a', async (ctx) => {
