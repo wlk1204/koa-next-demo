@@ -4,6 +4,16 @@ import path from 'path'
 const conf = {
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
 
+    const cssLoader = {
+      loader: 'css-loader',
+      options: {
+        modules: true,
+        url: true,
+        import: false,
+        // localIdentName: '[local]_[hash:base64:5]',
+      },
+    }
+
     const sassLoader = {
       loader: 'sass-loader',
       options: {
@@ -11,33 +21,29 @@ const conf = {
         url: true,
         import: false,
       },
-    };
+    }
 
     config.module.rules.push({
       test: /\.(scss|sass)$/,
       include: [path.resolve(__dirname, './client/')],
       use: [
         MiniCssExtractPlugin.loader,
-        {
-          loader: 'css-loader',
-          options: {
-            modules: false,
-            url: true,
-            import: false,
-          },
-        },
+        cssLoader,
         sassLoader,
       ],
-    });
+    })
 
     config.plugins.push(
       new MiniCssExtractPlugin({
-        filename: 'static/chunks/[name].css',
-        chunkFilename: 'static/chunks/[name].chunk.css',
-      })
-    );
+        filename: dev
+          ? 'static/chunks/[name].css'
+          : 'static/chunks/[name].[contenthash:8].css',
+        chunkFilename: dev
+          ? 'static/chunks/[name].chunk.css'
+          : 'static/chunks/[name].[contenthash:8].chunk.css',
+      }),
+    )
 
-    // config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
     return config
   },
   // webpackDevMiddleware: config => {

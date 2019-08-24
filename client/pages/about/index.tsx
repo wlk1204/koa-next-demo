@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import './style.scss'
+import styles from './style.scss'
 
 class B extends React.Component<any, any> {
   constructor(props) {
@@ -18,7 +18,7 @@ class B extends React.Component<any, any> {
   render() {
     return (
       <div>
-        <div className='title'>Hello World {this.props.foo}</div>
+        <div className={styles.title}>Hello World {this.props.foo}</div>
         <button onClick={this.click}>ok</button>
       </div>
     )
