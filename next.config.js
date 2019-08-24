@@ -23,6 +23,48 @@ const conf = {
       },
     }
 
+    // 配置 antd
+    if (isServer) {
+      const antStyles = /antd\/.*?\/style\/css.*?/
+      const origExternals = [...config.externals]
+      config.externals = [
+        (context, request, callback) => {
+          if (request.match(antStyles)) return callback()
+          if (typeof origExternals[0] === 'function') {
+            origExternals[0](context, request, callback)
+          } else {
+            callback()
+          }
+        },
+        ...(typeof origExternals[0] === 'function' ? [] : origExternals),
+      ]
+
+      config.module.rules.unshift({
+        test: antStyles,
+        use: 'null-loader',
+      })
+    }
+
+    config.module.rules.push({
+      test: /\.css$/,
+      include: [
+        path.resolve(__dirname, './client/'),
+        path.resolve(__dirname, './node_modules/'),
+      ],
+      use: [
+        MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+          options: {
+            modules: false,
+            url: true,
+            import: false,
+          },
+        },
+      ]
+    });
+
+    // 配置scss
     config.module.rules.push({
       test: /\.(scss|sass)$/,
       include: [path.resolve(__dirname, './client/')],
