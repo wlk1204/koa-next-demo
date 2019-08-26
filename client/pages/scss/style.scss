@@ -1,7 +1,10 @@
 .block {
   width: 60px;
-  height: 20px;
+  height: 40px;
   background: #84b5d3;
+  --text-color: black;
+  color: greenyellow;
+  background-color: #bbb9;
 }
 
 .title {

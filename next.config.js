@@ -46,6 +46,7 @@ const conf = {
       })
     }
 
+    // 配置 antd(css-loader postcss-loader)
     config.module.rules.push({
       test: /\.css$/,
       include: [
@@ -66,7 +67,7 @@ const conf = {
       ]
     });
 
-    // 配置scss
+    // 配置 scss
     config.module.rules.push({
       test: /\.(scss|sass)$/,
       include: [path.resolve(__dirname, './client/')],

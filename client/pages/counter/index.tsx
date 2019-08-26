@@ -10,9 +10,18 @@ class A extends React.Component<any, any> {
   }
 
   addClick = () => {
-    this.props.dispatch({
-      type: 'add',
-    })
+    const { dispatch } = this.props
+    dispatch(add())
+
+    function add() {
+      return dispatch => {
+        setTimeout(() => {
+          dispatch({
+            type: 'add'
+          })
+        }, 1000)
+      }
+    }
   }
 
   lowclick = () => {

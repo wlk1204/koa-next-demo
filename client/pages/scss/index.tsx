@@ -18,7 +18,7 @@ class B extends React.Component<any, any> {
   render() {
     return (
       <div>
-        <div className={styles.block} />
+        <div className={styles.block}>ss</div>
         <div className={styles.title}>Hello World {this.props.foo}</div>
         <button onClick={this.click}>ok</button>
       </div>
