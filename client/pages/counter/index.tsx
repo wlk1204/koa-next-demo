@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Link from 'next/link'
+import { Button } from 'antd'
 
 class A extends React.Component<any, any> {
   constructor(props) {
@@ -24,11 +25,11 @@ class A extends React.Component<any, any> {
     return (
       <div>
         <div>计数器： {this.props.count}</div>
-        <button onClick={this.addClick}>+</button>
-        <button onClick={this.lowclick}>-</button>
+        <Button onClick={this.addClick}>+</Button>
+        <Button onClick={this.lowclick}>-</Button>
         <li>
-          <Link href='/about'>
-            <a>跳转 about</a>
+          <Link href='/antd'>
+            <a>跳转 antd</a>
           </Link>
         </li>
       </div>

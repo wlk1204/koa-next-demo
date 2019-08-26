@@ -4,17 +4,16 @@ import path from 'path'
 const conf = {
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
 
-    const cssLoader = {
+    defaultLoaders.cssLoader = {
       loader: 'css-loader',
       options: {
         modules: true,
         url: true,
         import: false,
-        // localIdentName: '[local]_[hash:base64:5]',
       },
     }
 
-    const sassLoader = {
+    defaultLoaders.sassLoader = {
       loader: 'sass-loader',
       options: {
         modules: true,
@@ -22,6 +21,8 @@ const conf = {
         import: false,
       },
     }
+
+    defaultLoaders.postcssLoader = { loader: 'postcss-loader' }
 
     // 配置 antd
     if (isServer) {
@@ -61,6 +62,7 @@ const conf = {
             import: false,
           },
         },
+        defaultLoaders.postcssLoader,
       ]
     });
 
@@ -70,8 +72,9 @@ const conf = {
       include: [path.resolve(__dirname, './client/')],
       use: [
         MiniCssExtractPlugin.loader,
-        cssLoader,
-        sassLoader,
+        defaultLoaders.cssLoader,
+        defaultLoaders.postcssLoader,
+        defaultLoaders.sassLoader,
       ],
     })
 
