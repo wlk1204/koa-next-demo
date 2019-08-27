@@ -13,8 +13,16 @@
     "next",
     "demo"
   ],
-  "author": "wanglk",
+  "author": "wanglk <wlk90god@gmail.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wlk1204/koa-next-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wlk1204/koa-next-demo/issues"
+  },
+  "homepage": "https://github.com/wlk1204/koa-next-demo",
   "dependencies": {
     "antd": "^3.22.0",
     "autoprefixer": "^9.6.1",
