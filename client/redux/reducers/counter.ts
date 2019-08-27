@@ -1,5 +1,4 @@
-const ADD = 'add'
-const LOW = 'low'
+import * as types from '../actionTypes'
 
 const initState = {
   count: 0,
@@ -7,10 +6,12 @@ const initState = {
 
 const counter = (state = initState, action) => {
   switch (action.type) {
-    case ADD:
+    case types.ADD:
       return {...state, count: state.count + 1}
-    case LOW:
+    case types.LOW:
       return {...state, count: state.count - 1}
+    case types.START:
+        return {...state, count: state.count + 2}
     default:
       return state
   }

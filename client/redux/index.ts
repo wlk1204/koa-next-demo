@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { createLogger } from 'redux-logger'
-import thunk from 'redux-thunk'
+import { createEpicMiddleware } from 'redux-observable'
 import reducers from './reducers'
+import { rootEpic } from './epics'
 
 const configureStore = (initialState) => {
 
@@ -11,15 +12,21 @@ const configureStore = (initialState) => {
         trace: true, traceLimit: 25,
       }) : compose
 
+  const epicMiddleware = createEpicMiddleware()
+
   const logger = createLogger({
     collapsed: true,
   })
 
-  const middleware = [thunk, logger]
+  const middleware = [epicMiddleware, logger]
 
-  return createStore(reducers, initialState, composeEnhancers(
+  const store = createStore(reducers, initialState, composeEnhancers(
     applyMiddleware(...middleware),
   ))
+
+  epicMiddleware.run(rootEpic)
+
+  return store
 }
 
 export default configureStore

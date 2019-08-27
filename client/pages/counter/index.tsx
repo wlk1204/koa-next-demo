@@ -3,31 +3,28 @@ import { connect } from 'react-redux'
 import Link from 'next/link'
 import { Button } from 'antd'
 
+import * as actions from '../../redux/actions'
+
 class A extends React.Component<any, any> {
   constructor(props) {
     super(props)
     this.state = {}
   }
 
-  addClick = () => {
-    const { dispatch } = this.props
-    dispatch(add())
-
-    function add() {
-      return dispatch => {
-        setTimeout(() => {
-          dispatch({
-            type: 'add'
-          })
-        }, 1000)
-      }
-    }
+  addClick = async () => {
+    this.props.dispatch(actions._add())
   }
 
   lowclick = () => {
-    this.props.dispatch({
-      type: 'low',
-    })
+    this.props.dispatch(actions._low())
+  }
+
+  startAdd = () => {
+    this.props.dispatch(actions._start())
+  }
+
+  endAdd = () => {
+    this.props.dispatch(actions._end())
   }
 
   render() {
@@ -36,6 +33,8 @@ class A extends React.Component<any, any> {
         <div>计数器： {this.props.count}</div>
         <Button onClick={this.addClick}>+</Button>
         <Button onClick={this.lowclick}>-</Button>
+        <Button onClick={this.startAdd}>start</Button>
+        <Button onClick={this.endAdd}>end</Button>
         <li>
           <Link href='/antd'>
             <a>跳转 antd</a>
