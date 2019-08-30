@@ -7,7 +7,9 @@ const conf = {
     defaultLoaders.cssLoader = {
       loader: 'css-loader',
       options: {
-        modules: true,
+        modules: {
+          localIdentName: '[local]__[hash:base64:5]',
+        },
         url: true,
         import: false,
       },
