@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Button } from 'antd'
-
-import * as actions from '../../redux/actions'
+import styles from './style.scss'
+import { increment, decrement, autoIncrement, autoStop } from '../../redux/epics/counter'
 
 class A extends React.Component<any, any> {
   constructor(props) {
@@ -10,24 +10,24 @@ class A extends React.Component<any, any> {
   }
 
   addClick = async () => {
-    this.props.dispatch(actions._add())
+    this.props.dispatch(increment({ count: 20 }))
   }
 
   lowclick = () => {
-    this.props.dispatch(actions._low())
+    this.props.dispatch(decrement())
   }
 
   startAdd = () => {
-    this.props.dispatch(actions._start())
+    this.props.dispatch(autoIncrement())
   }
 
   endAdd = () => {
-    this.props.dispatch(actions._end())
+    this.props.dispatch(autoStop())
   }
 
   render() {
     return (
-      <div>
+      <div className={styles.main}>
         <div>计数器： {this.props.count}</div>
         <Button onClick={this.addClick}>+</Button>
         <Button onClick={this.lowclick}>-</Button>

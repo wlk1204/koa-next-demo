@@ -1,35 +1,45 @@
 import { interval, of } from 'rxjs'
 import { takeUntil, mergeMap, catchError, map  } from 'rxjs/operators'
 import { ofType } from 'redux-observable'
+import { createAction } from 'redux-actions'
 
-import * as actions from '../actions'
-import * as types from '../actionTypes'
+import { $increment, $decrement, $autoIncrement, $autoStop } from '../reducers/counter'
+
+const INCREMENT = 'INCREMENT'
+const DECREMENT = 'DECREMENT'
+const AUTOINCREMENT = 'AUTOINCREMENT'
+const STOPINCREMENT = 'STOPINCREMENT'
+
+export const increment = createAction(INCREMENT)
+export const decrement = createAction(DECREMENT)
+export const autoIncrement = createAction(AUTOINCREMENT)
+export const autoStop = createAction(STOPINCREMENT)
 
 const fetchADD = (action$, state$) =>
   action$.pipe(
-    ofType(types._ADD),
+    ofType(INCREMENT),
     mergeMap((action) =>
-      of(actions.add()),
+      of($increment()),
     ),
   )
 
 const fetchLOW = (action$, state$) =>
   action$.pipe(
-    ofType(types._LOW),
+    ofType(DECREMENT),
     mergeMap((action) =>
-      of(actions.low()),
+      of($decrement()),
     ),
   )
 
 const fetchStartAdd = (action$, state$) =>
   action$.pipe(
-    ofType(types._START),
+    ofType(AUTOINCREMENT),
     mergeMap((action) => {
       return interval(1000).pipe(
-        map((x) => actions.start()),
+        map((x) => $autoIncrement()),
         takeUntil(
           action$.ofType(
-            types._END,
+            STOPINCREMENT,
           ),
         ),
       )
