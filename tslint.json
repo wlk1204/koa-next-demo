@@ -18,6 +18,7 @@
     "only-arrow-functions": false,
     "object-literal-sort-keys": false,
     "semicolon": [true, "never"],
-    "jsx-no-multiline-js": false
+    "jsx-no-multiline-js": false,
+    "variable-name": false
   }
 }

@@ -1,11 +1,11 @@
 import { interval, of } from 'rxjs'
 import { takeUntil, mergeMap, catchError, map  } from 'rxjs/operators'
-import { combineEpics, ofType } from 'redux-observable'
+import { ofType } from 'redux-observable'
 
-import * as actions from './actions'
-import * as types from './actionTypes'
+import * as actions from '../actions'
+import * as types from '../actionTypes'
 
-export const fetchADD = (action$, state$) =>
+const fetchADD = (action$, state$) =>
   action$.pipe(
     ofType(types._ADD),
     mergeMap((action) =>
@@ -13,7 +13,7 @@ export const fetchADD = (action$, state$) =>
     ),
   )
 
-export const fetchLOW = (action$, state$) =>
+const fetchLOW = (action$, state$) =>
   action$.pipe(
     ofType(types._LOW),
     mergeMap((action) =>
@@ -21,7 +21,7 @@ export const fetchLOW = (action$, state$) =>
     ),
   )
 
-export const fetchStartAdd = (action$, state$) =>
+const fetchStartAdd = (action$, state$) =>
   action$.pipe(
     ofType(types._START),
     mergeMap((action) => {
@@ -36,4 +36,8 @@ export const fetchStartAdd = (action$, state$) =>
     }),
   )
 
-export const rootEpic = combineEpics(fetchADD, fetchLOW, fetchStartAdd)
+export default [
+  fetchADD,
+  fetchLOW,
+  fetchStartAdd,
+]

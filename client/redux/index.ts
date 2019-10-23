@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { createLogger } from 'redux-logger'
 import { createEpicMiddleware } from 'redux-observable'
 import reducers from './reducers'
-import { rootEpic } from './epics'
+import rootEpic from './epics'
 
 const configureStore = (initialState) => {
 

@@ -1,5 +1,7 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import path from 'path'
+// import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+// import path from 'path'
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path')
 
 const conf = {
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
