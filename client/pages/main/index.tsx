@@ -4,7 +4,12 @@ import { Button } from 'antd'
 import styles from './style.scss'
 import { increment, decrement, autoIncrement, autoStop } from '../../redux/epics/counter'
 
-class A extends React.Component<any, any> {
+interface AProps {
+  dispatch: any
+  count: number
+}
+
+class A extends React.Component<AProps, any> {
   constructor(props) {
     super(props)
   }
@@ -32,7 +37,7 @@ class A extends React.Component<any, any> {
         <Button onClick={this.addClick}>+</Button>
         <Button onClick={this.lowclick}>-</Button>
         <Button type='primary' onClick={this.startAdd}>start</Button>
-        <Button onClick={this.endAdd}>end</Button>
+        <Button onClick={this.endAdd}>stop</Button>
       </div>
     )
   }

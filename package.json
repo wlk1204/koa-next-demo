@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon",
+    "dev": "sh ./scripts/bindhost.sh && sh ./scripts/nginx.sh && nodemon",
     "build": "next build client",
     "start": "next start client"
   },
