@@ -1,0 +1,34 @@
+.btn {
+  outline: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &-blue {
+    border: 1px solid #1890ff;
+    background-color: #1890ff;
+  }
+
+  &-red {
+    border: 1px solid #ff4d4f;
+    background-color: #ff4d4f;
+  }
+
+  &-large {
+    font-size: 32px;
+    width: 160px;
+    height: 70px;
+  }
+
+  &-middle {
+    font-size: 24px;
+    width: 140px;
+    height: 60px;
+  }
+
+  &-small {
+    font-size: 16px;
+    width: 100px;
+    height: 50px;
+  }
+}

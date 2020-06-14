@@ -7,11 +7,6 @@
     "isolatedModules": false,
     "noEmit": false
   },
-  "include": [
-    "app.ts",
-    "next.config.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["app.ts", "next.config.ts"],
+  "exclude": ["node_modules"]
 }

@@ -26,9 +26,13 @@
   "dependencies": {
     "antd": "^3.22.0",
     "autoprefixer": "^9.6.1",
+    "axios": "^0.19.2",
     "babel-plugin-import": "^1.12.0",
+    "classnames": "^2.2.6",
     "css-loader": "^3.2.0",
     "cssnano": "^4.1.10",
+    "d3-selection": "^1.4.1",
+    "d3-shape": "^1.3.7",
     "koa": "^2.8.1",
     "koa-router": "^7.4.0",
     "mini-css-extract-plugin": "^0.8.0",
@@ -47,6 +51,7 @@
     "redux-observable": "^1.1.0",
     "rxjs": "^6.5.2",
     "sass-loader": "^7.3.1",
+    "three": "^0.117.1",
     "typescript": "^3.5.3"
   },
   "devDependencies": {
