@@ -1,0 +1,15 @@
+.boardref {
+  margin: 16px 0;
+
+  .board {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background-color: #eee;
+
+    .gridLayout {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
