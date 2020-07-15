@@ -1,10 +1,11 @@
 import React from "react";
+import { EditOutlined } from "@ant-design/icons";
 
 const BarEditConfig = () => {
   return (
     <>
       <div className="barItem">
-        <i className="icms icms-wrench" />
+        <EditOutlined />
         编辑数据
       </div>
     </>

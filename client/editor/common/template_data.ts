@@ -27,7 +27,7 @@ export const templates = [
     id: 2,
     type: "chart",
     name: "柱状图",
-    style: { height: 300 },
+    style: { width: 300, height: 300 },
     props: {
       option: bar_options,
       notMerge: true,
@@ -47,7 +47,7 @@ export const templates = [
     id: 3,
     type: "chart",
     name: "饼图",
-    style: { height: 300 },
+    style: { width: 300, height: 300 },
     props: {
       option: pie_options,
       notMerge: true,

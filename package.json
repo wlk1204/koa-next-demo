@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/wlk1204/koa-next-demo",
   "dependencies": {
+    "@ant-design/icons": "^4.2.1",
     "antd": "^4.4.1",
     "autoprefixer": "^9.6.1",
     "babel-plugin-import": "^1.12.0",
@@ -57,7 +58,7 @@
   "devDependencies": {
     "@types/koa": "^2.0.49",
     "@types/node": "^12.7.2",
-    "@types/react": "^16.9.2",
+    "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.0",
     "cross-env": "^5.2.0",
     "nodemon": "^1.19.1",

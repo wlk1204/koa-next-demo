@@ -34,7 +34,10 @@ export const Generator: React.FC<BoxProps> = React.memo(
     }, [currentElement]);
 
     return (
-      <div ref={drag} style={{ opacity, ...currentElement.style }}>
+      <div
+        ref={drag}
+        style={{ opacity, ...currentElement.style, width: "100%" }}
+      >
         {_renderElement()}
       </div>
     );

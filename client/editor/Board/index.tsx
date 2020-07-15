@@ -7,15 +7,9 @@ import { Button } from "antd";
 import ReactEcharts from "echarts-for-react";
 import { GeneratorInboard } from "../common/generator";
 import { templates } from "../common/template_data";
+import Box from "./Box";
 
 import styles from "./style.scss";
-
-const style: React.CSSProperties = {
-  textAlign: "center",
-  fontSize: "1rem",
-  lineHeight: "normal",
-  float: "left",
-};
 
 export const Board: React.FC = () => {
   // 目标数据
@@ -53,45 +47,31 @@ export const Board: React.FC = () => {
     backgroundColor = "darkkhaki";
   }
 
-  // console.log("====== dataList", dataList);
-
-  const onLayoutChange = async (newLayout) => {};
-
-  const onItemClick = (e) => {};
+  const onItemClick = (config) => {
+    console.log("=========", config);
+  };
 
   return (
     <div className={styles.editorPanel} ref={boardRef}>
-      <div
-        className={styles.board}
-        ref={drop}
-        style={{ ...style, backgroundColor }}
-      >
-        <GridLayout
-          className={styles.gridLayout}
-          rowHeight={1}
-          compactType={null}
-          style={{ height: "100%" }}
-          onResizeStart={() => setIsDragging(true)}
-          onResizeStop={() => setIsDragging(false)}
-          isDragging={isDragging}
-          onLayoutChange={onLayoutChange}
-          cols={100}
-          width={800}
-        >
-          {dataList.map((item, key) => {
-            const template = templates.filter((x) => x.id === item.id)[0];
-            return (
-              <div
-                key={key}
-                data-grid={{ x: 0, y: 0, w: 50, h: 30 }}
-                onClick={onItemClick}
-                // style={{ position: "absolute", left: item.x, top: item.y }}
-              >
-                <GeneratorInboard currentElement={template} />
-              </div>
-            );
-          })}
-        </GridLayout>
+      <div className={styles.board} ref={drop} style={{ backgroundColor }}>
+        {dataList.map((item, key) => {
+          const template = templates.filter((x) => x.id === item.id)[0];
+          return (
+            <Box
+              key={key}
+              onClick={onItemClick.bind(this, template)}
+              style={{
+                position: "absolute",
+                width: template.style.width,
+                height: template.style.height,
+                left: item.x,
+                top: item.y,
+              }}
+            >
+              <GeneratorInboard currentElement={template} />
+            </Box>
+          );
+        })}
       </div>
     </div>
   );

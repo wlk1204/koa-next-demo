@@ -1,10 +1,11 @@
 import React from "react";
+import { SaveOutlined } from "@ant-design/icons";
 
 const BarSavePage = () => {
   return (
     <>
       <div className="barItem">
-        <i className="icms icms-wrench" />
+        <SaveOutlined />
         保存
       </div>
     </>

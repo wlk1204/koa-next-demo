@@ -1,10 +1,5 @@
 export const option = {
-  tooltip: {
-    trigger: "item",
-    formatter: "{a} <br/>{b}: {c} ({d}%)",
-  },
   legend: {
-    orient: "vertical",
     left: 10,
     data: ["直接访问", "邮件营销", "联盟广告", "视频广告", "搜索引擎"],
   },

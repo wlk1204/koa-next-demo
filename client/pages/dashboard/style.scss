@@ -2,3 +2,14 @@
   background: #262626;
   height: 100vh;
 }
+
+/**
+ * 全局样式配置
+ */
+
+// icon 增加边距
+:global {
+  .anticon {
+    margin-right: 8px;
+  }
+}
