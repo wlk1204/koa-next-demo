@@ -5,8 +5,8 @@ import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 import { Button } from "antd";
 import ReactEcharts from "echarts-for-react";
-import { generatorInboard } from "../templates/generator";
-import { templates } from "../templates/template_data";
+import { GeneratorInboard } from "../common/generator";
+import { templates } from "../common/template_data";
 
 import styles from "./style.scss";
 
@@ -55,12 +55,12 @@ export const Board: React.FC = () => {
 
   // console.log("====== dataList", dataList);
 
-  const onLayoutChange = async (newLayout) => {
-    console.log("=========", newLayout);
-  };
+  const onLayoutChange = async (newLayout) => {};
+
+  const onItemClick = (e) => {};
 
   return (
-    <div className={styles.boardref} ref={boardRef}>
+    <div className={styles.editorPanel} ref={boardRef}>
       <div
         className={styles.board}
         ref={drop}
@@ -70,7 +70,7 @@ export const Board: React.FC = () => {
           className={styles.gridLayout}
           rowHeight={1}
           compactType={null}
-          style={{ height: 400 }}
+          style={{ height: "100%" }}
           onResizeStart={() => setIsDragging(true)}
           onResizeStop={() => setIsDragging(false)}
           isDragging={isDragging}
@@ -84,11 +84,10 @@ export const Board: React.FC = () => {
               <div
                 key={key}
                 data-grid={{ x: 0, y: 0, w: 50, h: 30 }}
+                onClick={onItemClick}
                 // style={{ position: "absolute", left: item.x, top: item.y }}
               >
-                {generatorInboard({
-                  currentElement: template,
-                })}
+                <GeneratorInboard currentElement={template} />
               </div>
             );
           })}

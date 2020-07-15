@@ -6,10 +6,10 @@
 import { bar_options, pie_options } from "./Chart/options";
 
 export const templates = [
-  // 按钮
   {
     id: 1,
     type: "common",
+    name: "按钮",
     props: {
       children: "Glass",
     },
@@ -23,10 +23,10 @@ export const templates = [
       }),
     },
   },
-  // 柱状图
   {
     id: 2,
     type: "chart",
+    name: "柱状图",
     style: { height: 300 },
     props: {
       option: bar_options,
@@ -43,10 +43,10 @@ export const templates = [
       }),
     },
   },
-  // 饼图
   {
     id: 3,
     type: "chart",
+    name: "饼图",
     style: { height: 300 },
     props: {
       option: pie_options,
