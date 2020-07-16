@@ -3,7 +3,7 @@ import { Button } from "antd";
 import styles from "./style.scss";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
-import { Board } from "../../editor/Board";
+import Board from "../../editor/Board";
 import TopBar from "../../editor/TopBar";
 import LeftView from "../../editor/LeftView";
 import RightView from "../../editor/RightView";

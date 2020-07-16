@@ -4,14 +4,21 @@ import GridLayout from "react-grid-layout";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 import { Button } from "antd";
+import { connect } from "react-redux";
+import { Dispatch, Action } from "redux";
 import ReactEcharts from "echarts-for-react";
 import { GeneratorInboard } from "../common/generator";
 import { templates } from "../common/template_data";
 import Box from "./Box";
+import { selectCurrentComp } from "../../redux/epics/editor";
 
 import styles from "./style.scss";
 
-export const Board: React.FC = () => {
+interface BoardProps {
+  dispatch: any;
+}
+
+const Board: React.FC<any> = (props) => {
   // 目标数据
   const [dataList, setDataList] = useState([]);
   const [isDragging, setIsDragging] = useState(false);
@@ -48,7 +55,11 @@ export const Board: React.FC = () => {
   }
 
   const onItemClick = (config) => {
-    console.log("=========", config);
+    props.dispatch(
+      selectCurrentComp({
+        compData: config,
+      })
+    );
   };
 
   return (
@@ -76,3 +87,5 @@ export const Board: React.FC = () => {
     </div>
   );
 };
+
+export default connect((state: any) => state.editor)(Board);

@@ -1,0 +1,86 @@
+import {
+  createAction,
+  handleActions,
+  combineActions,
+  createActions,
+  Reducer,
+} from "redux-actions";
+import { bar_options, pie_options } from "../options";
+
+const initState = {
+  compData: null,
+  templates: [
+    {
+      id: 1,
+      type: "common",
+      name: "按钮",
+      props: {
+        children: "Glass",
+      },
+      render: {
+        name: "Button",
+      },
+      drag: {
+        item: { name: "Glass", type: "comp", id: 1 },
+        collect: (monitor) => ({
+          isDragging: monitor.isDragging(),
+        }),
+      },
+    },
+    {
+      id: 2,
+      type: "chart",
+      name: "柱状图",
+      style: { width: 300, height: 300 },
+      props: {
+        option: bar_options,
+        notMerge: true,
+        lazyUpdate: true,
+        theme: "theme_name",
+        style: { height: "100%" },
+      },
+      render: { name: "ReactEcharts" },
+      drag: {
+        item: { name: "Glass", type: "comp", id: 2, options: bar_options },
+        collect: (monitor) => ({
+          isDragging: monitor.isDragging(),
+        }),
+      },
+    },
+    {
+      id: 3,
+      type: "chart",
+      name: "饼图",
+      style: { width: 300, height: 300 },
+      props: {
+        option: pie_options,
+        notMerge: true,
+        lazyUpdate: true,
+        theme: "theme_name",
+        style: { height: "100%" },
+      },
+      render: { name: "ReactEcharts" },
+      drag: {
+        item: { name: "Glass", type: "comp", id: 3, options: pie_options },
+        collect: (monitor) => ({
+          isDragging: monitor.isDragging(),
+        }),
+      },
+    },
+  ],
+};
+
+const SELECTCOMP = "$SELECTCOMP";
+
+export const $SELECTCOMP = createAction(SELECTCOMP);
+
+const editor = handleActions(
+  {
+    [SELECTCOMP]: (state, action) => ({ ...state, ...action.payload }),
+  },
+  initState
+);
+
+export default {
+  editor,
+};
