@@ -3,10 +3,7 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
+    "lib": ["dom", "es2017"],
     "baseUrl": "..",
     "moduleResolution": "node",
     "strict": false,
@@ -22,14 +19,12 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "*": ["*"],
+      "@editor/*": ["client/editor/*"]
+    }
   },
-  "exclude": [
-    ".next"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "exclude": [".next"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

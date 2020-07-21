@@ -5,7 +5,7 @@ import CompSetting from "./CompSetting";
 import styles from "./style.scss";
 
 const RightView = () => {
-  const [currentSettingPanel, setCurrentSettingPanel] = useState(0);
+  const [currentSettingPanel, setCurrentSettingPanel] = useState(1);
 
   const isActive = (index) => {
     if (index === currentSettingPanel) {
