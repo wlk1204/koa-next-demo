@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "sh ./scripts/bindhost.sh && sh ./scripts/nginx.sh && nodemon",
-    "build": "next build client",
-    "start": "next start client"
+    "build": "npm run tsc && next build client",
+    "start": "node dist/app.js",
+    "tsc": "tsc -p tsconfig.koa.json"
   },
   "keywords": [
     "koa",
@@ -53,7 +54,7 @@
     "redux-observable": "^1.1.0",
     "rxjs": "^6.5.2",
     "sass-loader": "^7.3.1",
-    "typescript": "^3.5.3"
+    "typescript": "^3.9.7"
   },
   "devDependencies": {
     "@types/koa": "^2.0.49",
